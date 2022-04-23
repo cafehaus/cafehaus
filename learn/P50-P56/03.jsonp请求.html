@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <button id="btnJsonp">jsonp请求</button>
+</body>
+
+<script>
+    $(function() {
+        // jsonp请求
+        $('#btnJsonp').on('click', function() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://127.0.0.1:8080/api/jsonp',
+                data: {
+                    name: 'zhou',
+                    age: 18
+                },
+                dataType: 'jsonp',
+                success: function(res) {
+                    console.log(res)
+                }
+            })
+        })
+    })
+</script>
+</html>

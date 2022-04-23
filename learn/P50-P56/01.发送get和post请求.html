@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <button id="btnGet">GET请求</button>
+    <button id="btnPost">post请求</button>
+</body>
+
+<script>
+    $(function() {
+        // get请求
+        $('#btnGet').on('click', function() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://127.0.0.1:8080/api/get',
+                data: {
+                    name: 'zhou',
+                    age: 18
+                },
+                success: function(res) {
+                    console.log(res)
+                }
+            })
+        })
+
+        // post请求
+        $('#btnPost').on('click', function() {
+            $.ajax({
+                type: 'POST',
+                url: 'http://127.0.0.1:8080/api/post',
+                data: {
+                    bookName: '春风十里不如你',
+                    author: '冯唐'
+                },
+                success: function(res) {
+                    console.log(res)
+                }
+            })
+        })
+    })
+</script>
+</html>
