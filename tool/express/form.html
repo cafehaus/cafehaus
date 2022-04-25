@@ -1,0 +1,48 @@
+<!-- 前端代码：-->	
+<div>
+  <!-- form表单 -->
+  <form method="POST" enctype="multipart/form-data">  
+    <input type="file" name="file" value="请选择文件"><br /> 
+    <input type="submit"> 
+  </form>
+
+  <!-- formData上传 -->
+  <div>
+    <input id="file" type="file" />	
+    <input type="button" value="文件上传" onclick="uploadFileFormData()" />
+  </div>
+
+   <!-- form表单上传 -->
+  <!-- <div>
+    <input id="file" type="file" /> 
+    <input type="button" value="文件上传" onclick="uploadFile()" />
+  </div> -->
+</div>	
+<script>	
+  function uploadFile() {	
+    const file = document.getElementById('file').files[0];	
+    const xhr = new XMLHttpRequest();	
+    xhr.open('POST', `http://localhost:3000/upload?name=${file.name}`, true);	
+    xhr.onreadystatechange = function() {	
+      if (xhr.readyState == 4 && xhr.status == 200) {	
+        alert(xhr.responseText);	
+      }	
+      }	
+    xhr.send(file);	
+  }	
+
+
+  function uploadFileFormData() { 
+    const file = document.getElementById('file').files[0];  
+    const xhr = new XMLHttpRequest(); 
+    const fd = new FormData();  
+    fd.append('file', file);  
+    xhr.open('POST', 'http://localhost:3000/upload-form-data', true); 
+    xhr.onreadystatechange = function() { 
+      if (xhr.readyState == 4 && xhr.status == 200) { 
+        alert(xhr.responseText);  
+      } 
+    };  
+    xhr.send(fd);
+  } 
+</script>
