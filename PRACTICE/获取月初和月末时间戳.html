@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function formatSubmitDate() {
+            // 获取月份时间戳
+            let curDate = new Date()
+            let year = curDate.getFullYear()
+            curDate.setDate(1)
+            curDate.setHours(0)
+            curDate.setSeconds(0)
+            curDate.setMinutes(0)
+
+            // 月份返回值是 0-11
+            let nextDate = new Date() // 下月
+            if (curDate.getMonth() === 11) {
+                nextDate.setMonth(0)
+                nextDate.setFullYear(year + 1)
+            } else {
+                nextDate.setMonth(curDate.getMonth() + 1)
+                nextDate.setFullYear(year)
+            }
+            nextDate.setDate(1)
+            nextDate.setHours(0)
+            nextDate.setSeconds(0)
+            nextDate.setMinutes(0)
+
+            let timeStart = parseInt(curDate.getTime() / 1000)
+            let timeEnd = parseInt(nextDate.getTime() / 1000) - 1 // 计算下月1号时间戳-1
+
+            return [timeStart, timeEnd]
+        }
+
+        let time = formatSubmitDate()
+        console.log(time)
+    </script>
+</body>
+</html>

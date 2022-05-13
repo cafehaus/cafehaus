@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的第一个网页设计</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 800px;
+            margin: 100px auto 0;
+            font-family: "PingFang SC",Arial,"Microsoft YaHei",sans-serif;
+        }
+
+        .title {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .note {
+            margin: 20px 0 80px;
+            text-align: justify;
+        }
+
+        .footer {
+            border-top: 2px dashed #eee;
+            padding-top: 40px;
+            text-align: center;
+        }
+
+        .input-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            margin-bottom: 40px;
+        }
+
+        .input-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .input-item label {
+            margin-right: 10px;
+            font-weight: 500;
+            color: #999;
+        }
+
+        .input-item .label {
+            margin: 0 16px 0 4px;
+            font-weight: 600;
+        }
+
+        .input-item .label.red {
+            color: #ff6e7f;
+        }
+
+        .input-item .label.green {
+            color: #57BC78;
+        }
+
+        .input-item .label.blue {
+            color: #1FA2FF;
+            margin-right: 0;
+        }
+
+        #input-size,
+        #input-color {
+           padding: 6px;
+           border: 2px solid #CCC;
+           width: 200px;
+        }
+
+        .btn-ok {
+            background: #57BC78;
+            color: #FFF;
+            padding: 10px 40px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="content">
+            <p class="title">我的第一个网页设计</p>
+            <p class="note">这是我做的第一个HTML网页，今天下了很大的雨，无聊就想到了来做作业，我想要做个特别酷炫的网页。可是呢，在我刚写了第一行代码的时候，我就饿了，然后我就又跑出去吃东西了。吃饱了后果然能量满满，瞬间感觉有了超能力，这点小作业小case啦！当我打开电脑的时候，突然感觉有点睡意了，如果先睡一觉，我想我会写出更牛比的代码，然后，我特么睡到了天黑...总之，在我不懈的努力下，终于做好了！</p>
+        </div>
+        <footer class="footer">
+            <div class="input-box">
+                <div class="input-item">
+                    <label>设置字号</label>
+                    <input id="input-size" name="size" type="number" value="" placeholder="请输入12以上的正整数" />
+                </div>
+                <div class="input-item">
+                    <label>设置字体</label>
+                    <input type="radio" name="family" value="SimSun" /><span class="label">宋体</span>
+                    <input type="radio" name="family" value="SimHei" /><span class="label">黑体</span>
+                </div>
+                <div class="input-item">
+                    <label>设置颜色</label>
+                    <input type="radio" name="color" value="#ff6e7f" /><span class="label red">RED</span>
+                    <input type="radio" name="color" value="#57bc78" /><span class="label green">GREEN</span>
+                    <input type="radio" name="color" value="#1FA2FF" /><span class="label blue">BLUE</span>
+                </div>
+            </div>
+            <a class="btn-ok" href="javascript:void(0);" onclick="setStyle()">确定</a>
+        </footer>
+    </div>
+</body>
+
+<script>
+    // 设置字号颜色
+    function setStyle() {
+        let content = document.getElementsByClassName('content')[0]
+        let sizeInput = document.getElementsByName("size")[0]
+        let colorInputs = document.getElementsByName("color")
+        let familyInputs = document.getElementsByName("family")
+
+        let sizeVal = parseInt(sizeInput.value)
+        
+        if (sizeVal < 12) {
+            sizeInput.value = ''
+            alert('请输入12以上的正整数')
+            return
+        }
+
+        // 设置字体
+        for (let i = 0; i < familyInputs.length; i++) {
+            if (familyInputs[i].checked){
+                content.style.fontFamily = familyInputs[i].value
+            }
+        }
+
+        // 设置颜色
+        for (let i = 0; i < colorInputs.length; i++) {
+            if (colorInputs[i].checked){
+                content.style.color = colorInputs[i].value
+            }
+        }
+        content.style.fontSize = sizeVal + 'px'
+    }
+</script>
+</html>

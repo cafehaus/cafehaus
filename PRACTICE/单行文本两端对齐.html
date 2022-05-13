@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .item {
+        height: 32px;
+        line-height: 32px;
+        margin-bottom: 8px;
+      }
+      .label {
+        display: inline-block;
+        height: 100%;
+        width: 100px;
+        text-align: justify;
+        vertical-align: top;
+        text-align-last: justify;
+      }
+      /* .label::after {
+        display: inline-block;
+        width: 100%;
+        content: " ";
+        height: 0;
+      } */
+      .value {
+        padding-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 一般在表单前的label用得比较多，冒号不要加在label里   -->
+    <div class="item">
+      <span class="label">开航时间</span>
+      <span class="value">：2019-12-09</span>
+    </div>
+    <div class="item">
+      <span class="label">周期</span>
+      <span class="value">：3622</span>
+    </div>
+    <div class="item">
+      <span class="label">船公司</span>
+      <span class="value">：中远航</span>
+    </div>
+  </body>
+</html>

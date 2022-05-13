@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // 一、根据属性名赋值
+    // 需求场景：当前对象属性少于已有的对象属性
+    let student = {
+        name: '周',
+        age: '18',
+        gender: '男',
+        class: '1班',
+        school: '深大',
+        teacher: '段老师'
+    }
+    let bigStudent = {
+        name: '',
+        age: '',
+        gender: '',
+        class: ''
+    }
+    // Object.keys获得对象的键名数组
+    Object.keys(bigStudent).forEach(key => {
+        this.bigStudent[key] = student[key]
+    })
+
+
+
+    // 二、文字内容过滤器
+    // 过滤器: filters: {}
+    function formateStatus(status) {
+        let obj = {
+            '200': '已到起运港',
+            '205': '开始装货',
+            '210': '装货完成',
+            '215': '离开港口',
+            '220': '航行中',
+            '225': '已到目的港',
+            '230': '开始卸货',
+            '235': '卸货完成'
+        }
+        let newStatus = ''
+        for (let key in obj) {
+            if (status === key) {
+                newStatus = obj[key]
+                break
+            }
+        }
+        return newStatus
+    }
+
+
+
+    // 三、利用计算属性动态修改iview框架table组件的columns表头 computed: {}
+    function realColums() {
+        const colums = {
+            title: '接单时间',
+            key: 'takingTime'
+        }
+
+        let arr = [...this.columsTitle]
+
+        // 利用splice向数组中间插入元素：第一个参数为1，即添加在第2列后面
+        arr.splice(1, 0, colums)
+        return '判断条件' ? this.columsTitle : arr
+    }
+
+
+
+    // 格式化日期
+    function formateDate(date, formate = 'yyyy-MM-dd HH:mm:ss') {
+        return date ? this.$wj.common.formatDate(date, formate) : '--'
+    }
+</script>
