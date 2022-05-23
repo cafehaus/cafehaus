@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel2JSON</title>
+    <style>
+        body {
+            text-align: center;
+            padding-top: 200px;
+        }
+        .tittle {
+            color: #57bc78;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="tittle">上传 Excel 转成 JSON 数据</h2>
+    <input type="file" name="file" id="file"  onchange="uploadFile(this)"/>
+</body>
+</html>
+
+<script>
+var myInput = document.querySelector('#file')
+var xhr = new XMLHttpRequest()
+
+// 点击上传
+function uploadFile(event) {
+    var formData = new FormData()
+    formData.append('excel', event.files[0])
+    xhr.onload = uploadSuccess
+    xhr.open('post', '/upload', true)
+    xhr.send(formData)
+}
+
+// 成功上传
+function uploadSuccess() {
+    if (xhr.status == 200) {
+        // 自动清除文件
+        setTimeout(function() {
+            myInput.value = ''
+        }, 3000)
+
+        var text = xhr.responseText || ''
+        var res = {}
+        try {
+            res = JSON.parse(text)
+        } catch(err) {
+            throw Error(err || '数据错误')
+        }
+
+        if (res.code === '200' && res.data) {
+            window.open(res.data)
+        }
+    }
+}
+</script>

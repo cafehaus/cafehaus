@@ -1,0 +1,20 @@
+{
+  "name": "p38-p49",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@node-rs/jieba": "^1.6.1",
+    "body-parser": "^1.20.0",
+    "express": "^4.17.3",
+    "multer": "^1.4.4",
+    "pinyin": "^2.11.2",
+    "xlsx": "^0.18.5"
+  }
+}
