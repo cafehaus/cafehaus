@@ -13,10 +13,23 @@
         .tittle {
             color: #57bc78;
         }
+        .intro {
+            color: #888;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        .intro p {
+            margin: 0 0 8px;
+        }
     </style>
 </head>
 <body>
-    <h2 class="tittle">上传 Excel 转成 JSON 数据</h2>
+    <h2 class="tittle">上传国家中英文 Excel 格式化成带 A-Z索引的 JSON 数据</h2>
+    <div class="intro">
+        <p>根据国家名中文获取第一个汉字首字母，生成 A-Z 索引分组用</p>
+        <small>{'国家中文名称': '美国','国家英文名称': 'USA','国家二字码': 'US'} => {nameCn: '美国', nameEn: 'USA', secondWord: 'US', firstLetter: 'M', id: 1}</small>
+    </div>
+
     <input type="file" name="file" id="file"  onchange="uploadFile(this)"/>
 </body>
 </html>

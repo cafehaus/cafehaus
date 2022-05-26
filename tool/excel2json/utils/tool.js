@@ -26,7 +26,7 @@ exports.fmtCountry = function(countryList) {
         nameEn: m['国家英文名称'],
         secondWord: m['国家二字码'],
         firstLetter,
-        id: idx
+        id: idx + 1
     })
     // test.push(m['国家中文名称'] + '：' + firstLetter)
 
@@ -57,11 +57,13 @@ exports.jsonHtmlTmp = function(data) {
   let html = ''
   let originData = ''
   try {
-    html = data.reduce((pev, cur) => {
-      pev += `<p>${JSON.stringify(cur)}</p>`
+    html = data.reduce((pev, cur, index) => {
+      pev += `<tr><td>${index + 1}</td><td>${JSON.stringify(cur)}</td></tr>`
 
       return pev
     }, '')
+
+    html = `<table border="0" cellpadding="16" cellspacing="0"><tr class="thead"><td width="40">序号</td><td>数据</td></tr>${html}</table>`
 
     originData = JSON.stringify(data)
   } catch(err) {
@@ -87,6 +89,12 @@ exports.jsonHtmlTmp = function(data) {
             .box {
                 max-width: 60%;
                 margin: 40px auto;
+                text-align: left;
+            }
+            .action {
+              display: flex;
+              align-items: center;
+              justify-content: center;
             }
             #button {
               border: none;
@@ -98,11 +106,42 @@ exports.jsonHtmlTmp = function(data) {
             #button:hover {
               opacity: .8;
             }
+            .btn-download {
+              display: inline-block;
+              box-sizing: border-box;
+              font-size: 13px;
+              color: #57bc78;
+              line-height: normal;
+              cursor: pointer;
+              margin-left: 10px;
+              padding: 6px 12px;
+              border: 1px solid #57bc78;
+              text-decoration: none;
+            }
+            .btn-download:hover {
+              opacity: .8;
+            }
+            table {
+              border-top: 1px solid #EEE;
+              border-left: 1px solid #EEE;
+              margin: 0 auto;
+            }
+            table td {
+              border-bottom: 1px solid #EEE;
+              border-right: 1px solid #EEE;
+            }
+            .thead {
+              font-weight: bold;
+              background: #f5f7f7;
+            }
         </style>
     </head>
     <body>
-        <h2 class="tittle">转换后的 JSON 数据</h2>
-        <button id="button">复制原始数据</button>
+        <h2 class="tittle">解析后的 JSON 数据</h2>
+        <div class="action">
+          <button id="button">复制原始 JSON 数据</button>
+          <a class="btn-download" href="/upload/excel.json" download="excel">下载 JSON 文件</a>
+        </div>
         <div class="box">${html}</div>
     </body>
     </html>
