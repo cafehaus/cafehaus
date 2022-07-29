@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style type="text/css">
+    #box {
+        position: relative;
+        overflow: hidden;
+        max-width: 750px;
+        height: 500px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin: 0 auto;
+    }
+    /* 红包的样式*/
+    
+    .redpack {
+        position: absolute;
+        display: block;
+        width: 30px;
+        height: 44px;
+        background: #f00;
+    }
+    /*点击后的红包*/
+    
+    .redpacked {
+        background: #f80;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+    </div>
+</body>
+<!-- <script type="text/javascript" src="js/redrain.js"></script> -->
+<script type="text/javascript">
+window.onload = function() {
+
+    var el = document.getElementById("box");
+    var rain = new redPack({
+        el: el, // 容器
+        //chance: 0.5, // 几率,暂时不要
+        speed: 10, // 速度，越小越快
+        density: 200, //  红包密度，越小越多
+        callback: function() {
+                console.log("callback");
+            } // 点击红包的回调
+    });
+
+    document.onclick = function() {
+        //停止
+        // rain.stop();
+    }
+};
+
+
+function redPack(options) {
+    this.el = options.el;
+    this.rains = [];
+    this.speed = options.speed; // 控制红包落下的速度
+    this.density = options.density; // 红包密度
+    this.callback = options.callback; // 回调
+    this.start();
+
+};
+redPack.prototype.create = function() {
+    var el = this.el;
+    var This = this;
+    var nRed = document.createElement("div");
+    nRed.className = "redpack";
+    nRed.style.left = Math.random() * (el.clientWidth - 30) + "px";
+    nRed.style.top = -el.clientHeight / 10 + "px";
+    nRed.onclick = function() {
+        nRed.className = "redpack redpacked";
+        This.callback();
+    }
+    el.appendChild(nRed);
+    this.move(nRed);
+    this.rains.push(nRed);
+};
+redPack.prototype.start = function() {
+    var This = this;
+    This.timer = setInterval(function() {
+        This.create();
+    }, This.density);
+};
+redPack.prototype.stop = function() {
+    var This = this;
+    clearInterval(This.timer);
+    for (var i = 0; i < This.rains.length; i++) {
+        clearInterval(This.rains[i].timer);
+    }
+};
+redPack.prototype.move = function(rains) {
+    var el = this.el;
+    var This = this;
+    var diffY = Math.random() + 1; // 垂直上的轻微偏移
+    var diffX = Math.random(); // 水平上的轻微偏移
+    rains.timer = setInterval(function() {
+        if (diffY > 1.5) {
+            rains.style.left = parseInt(rains.style.left) + parseInt(diffX * rains.clientHeight / 30) + "px";
+        } else {
+            rains.style.left = parseInt(rains.style.left) - parseInt(diffX * rains.clientHeight / 30) + "px";
+        }
+        rains.style.top = parseInt(rains.style.top) + parseInt(diffY * rains.clientHeight / 20) + "px";
+        if (el.clientHeight < parseInt(rains.style.top)) {
+            // 超出 区域过后，关闭定时器，删除红包
+            clearInterval(rains.timer);
+            el.removeChild(rains);
+        }
+    }, This.speed);
+};
+</script>
+
+</html>
