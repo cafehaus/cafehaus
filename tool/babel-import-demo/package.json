@@ -1,0 +1,16 @@
+{
+  "name": "babel-import-demo",
+  "version": "1.0.0",
+  "description": "babel 练习 demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cafehaus",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.18.13",
+    "fs-extra": "^10.1.0",
+    "shelljs": "^0.8.5"
+  }
+}
