@@ -1,6 +1,9 @@
 package cn.cafe123.helloworld.controller;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 public class HelloController {
@@ -21,3 +24,14 @@ public class HelloController {
         return "你的名字：" + username + ", 你的密码：" + password;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
