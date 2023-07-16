@@ -11,4 +11,43 @@
             </if>
         </where>
     </select>
+
+    <!--更新员工信息-->
+    <update id="update" parameterType="Employee">
+        update employee
+        <set>
+            <!--注意这里不要加 and name != '' 的判断，因为是传的 Employee 类进来，没有的属性就是 null-->
+            <!--<if test="name != null and name != ''">-->
+            <!--name = #{name},-->
+            <!--</if>-->
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="idNumber != null">
+                id_number = #{idNumber},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 </mapper>

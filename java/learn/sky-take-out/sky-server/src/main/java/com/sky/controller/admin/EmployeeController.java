@@ -101,4 +101,19 @@ public class EmployeeController {
         return Result.success(result);
     }
 
+    /**
+     * 启用禁用员工账号
+     *
+     * @param id 用户id,放在 query 参数里的
+     * @param status 状态：1-启用 0-禁用，注意是放在路径里的
+     * @return
+     */
+    @PostMapping ("/status/{status}")
+    @ApiOperation("启用禁用员工账号")
+    public Result startOrStop(@RequestParam Long id, @PathVariable Integer status) {
+        log.info("启用禁用员工id:{}, 状态：{}", id, status);
+        employeeService.startOrStop(id, status);
+        return Result.success();
+    }
+
 }

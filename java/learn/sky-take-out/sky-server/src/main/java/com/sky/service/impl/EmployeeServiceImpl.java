@@ -113,7 +113,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 分页查询员工列表
-     * @param EmployeePageQueryDTO
+     * @param employeePageQueryDTO
      * @return
      */
     public PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO) {
@@ -124,6 +124,26 @@ public class EmployeeServiceImpl implements EmployeeService {
         Long total = page.getTotal();
         List<Employee> records = page.getResult();
         return new PageResult(total, records);
+    }
+
+    /**
+     * 启用禁用员工
+     * @param id
+     * @param status
+     * @return
+     */
+    public void startOrStop(Long id, Integer status) {
+        // Employee employee = new Employee();
+        // employee.setId(id);
+        // employee.setStatus(status);
+        Employee employee = Employee.builder()
+                .id(id)
+                .status(status)
+                .build();
+
+        // System.out.printf(String.valueOf(employee));
+
+        employeeMapper.update(employee);
     }
 
 }
