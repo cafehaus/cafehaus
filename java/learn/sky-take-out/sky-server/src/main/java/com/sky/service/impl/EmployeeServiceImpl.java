@@ -16,6 +16,7 @@ import com.sky.exception.PasswordErrorException;
 import com.sky.mapper.EmployeeMapper;
 import com.sky.result.PageResult;
 import com.sky.service.EmployeeService;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -144,6 +145,27 @@ public class EmployeeServiceImpl implements EmployeeService {
         // System.out.printf(String.valueOf(employee));
 
         employeeMapper.update(employee);
+    }
+
+
+    /**
+     * 修改员工信息
+     * @param employee
+     * @return
+     */
+    public void edit(Employee employee) {
+        employeeMapper.update(employee);
+    }
+
+
+    /**
+     * 通过 id 查询员工
+     * @param id
+     * @return
+     */
+    public Employee getUserById(Long id) {
+       Employee userInfo = employeeMapper.getUserById(id);
+       return userInfo;
     }
 
 }
