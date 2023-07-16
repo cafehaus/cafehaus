@@ -10,6 +10,7 @@
                 name like concat('%', #{name}, '%')
             </if>
         </where>
+        order by update_time desc
     </select>
 
     <!--更新员工信息-->
