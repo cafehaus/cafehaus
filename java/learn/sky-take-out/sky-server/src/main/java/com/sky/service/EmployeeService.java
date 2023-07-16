@@ -42,10 +42,10 @@ public interface EmployeeService {
 
     /**
      * 修改员工信息
-     * @param employee
+     * @param employeeDTO
      * @return
      */
-    void edit(Employee employee);
+    void edit(EmployeeDTO employeeDTO);
 
     /**
      * 通过 id 查询员工

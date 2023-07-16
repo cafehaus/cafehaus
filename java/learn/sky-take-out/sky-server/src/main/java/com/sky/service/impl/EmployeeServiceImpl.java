@@ -150,10 +150,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 修改员工信息
-     * @param employee
+     * @param employeeDTO
      * @return
      */
-    public void edit(Employee employee) {
+    public void edit(EmployeeDTO employeeDTO) {
+        // 因为 update 里接收的是 Employee 实体，这里要自己转一下，顺便设置更新时间和更新人
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeDTO, employee);
+        employee.setUpdateTime(LocalDateTime.now());
+        employee.setUpdateUser(BaseContext.getCurrentId());
+
         employeeMapper.update(employee);
     }
 
