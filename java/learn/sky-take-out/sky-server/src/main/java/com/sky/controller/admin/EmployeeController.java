@@ -17,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -90,7 +89,7 @@ public class EmployeeController {
     /**
      * 分页查询员工列表
      *
-     * @param EmployeePageQueryDTO
+     * @param employeePageQueryDTO
      * @return
      */
     @GetMapping("/page")

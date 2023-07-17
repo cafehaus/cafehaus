@@ -36,7 +36,6 @@ public interface EmployeeMapper {
      * @param employeePageQueryDTO
      * @return
      */
-    @Mapper
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
 
 
@@ -45,7 +44,6 @@ public interface EmployeeMapper {
      * @param employee
      * @return
      */
-    @Mapper
     void update(Employee employee);
 
 
