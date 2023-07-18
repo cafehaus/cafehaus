@@ -12,7 +12,7 @@
                 AND type=#{type}
             </if>
         </where>
-        order by update_time desc
+        order by sort asc, update_time desc
     </select>
 
     <update id="update">
@@ -45,4 +45,13 @@
         </set>
         where id = #{id}
     </update>
+
+    <select id="list" resultType="Category">
+        select * from category
+        where status = 1
+        <if test="type != null">
+            and type = #{type}
+        </if>
+        order by sort asc,create_time desc
+    </select>
 </mapper>
