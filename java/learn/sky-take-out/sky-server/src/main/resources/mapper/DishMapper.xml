@@ -12,13 +12,13 @@
         select d.*, c.name as categoryName from dish d left outer join category c on d.category_id = c.id
         <where>
             <if test="name != null">
-                name like concat("%", #{d.name}, "%")
+                d.name like concat("%", #{name}, "%")
             </if>
             <if test="categoryId != null">
-                and category_id=#{d.categoryId}
+                and d.category_id=#{categoryId}
             </if>
             <if test="status != null">
-                and status=#{d.status}
+                and d.status=#{status}
             </if>
         </where>
         order by update_time desc
