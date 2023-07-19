@@ -1,8 +1,8 @@
 package com.sky.controller.admin;
 
-import com.github.pagehelper.Page;
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
+import com.sky.entity.Dish;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
@@ -48,6 +48,20 @@ public class DishController {
         log.info("查询菜品：{}", dishPageQueryDTO);
         PageResult result = dishService.query(dishPageQueryDTO);
         return Result.success(result);
+    }
+
+    /**
+     * 根据分类id或菜名查询菜品
+     * @description 新增套餐的时候用来勾选菜品，注意要起售中的菜品
+     * @param dish
+     * @return
+     */
+    @GetMapping("/list")
+    @ApiOperation("根据分类id或菜名查询菜品")
+    public Result<List<DishVO>> queryByCategoryOrName(Dish dish) {
+        log.info("根据分类id或菜名查询菜品:{}", dish);
+        List<DishVO> dishs = dishService.queryByCategoryOrName(dish);
+        return Result.success(dishs);
     }
 
     /**

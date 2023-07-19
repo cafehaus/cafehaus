@@ -157,4 +157,23 @@ public class DishServiceImpl implements DishService {
 
         // TODO 如果是停售菜品，要同时停售包含该菜品的套餐
     }
+
+    /**
+     * 根据分类id查询菜品
+     * @param categoryId
+     * @return
+     */
+    @Override
+    public List<DishVO> queryByCategoryOrName(Dish dish) {
+        // Dish dish = Dish.builder()
+        // .categoryId(categoryId)
+        // .status(StatusConstant.ENABLE)
+        // .build();
+
+        // 需要同时支持分类或菜名查询，所以这里直接用 Dish 接收参数
+        // 注意要起售中的菜品
+        dish.setStatus(StatusConstant.ENABLE);
+        List<DishVO> dishs = dishMapper.queryByCategoryOrName(dish);
+        return dishs;
+    }
 }
