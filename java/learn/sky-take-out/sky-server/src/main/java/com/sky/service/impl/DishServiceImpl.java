@@ -141,4 +141,20 @@ public class DishServiceImpl implements DishService {
             dishFlavorMapper.insertBatch(flavors);
         }
     }
+
+    /**
+     * 停售起售
+     * @param id
+     * @param status
+     */
+    @Override
+    public void changeStatus(Long id, Integer status) {
+        Dish dish = Dish.builder()
+                .status(status)
+                .id(id)
+                .build();
+        dishMapper.update(dish);
+
+        // TODO 如果是停售菜品，要同时停售包含该菜品的套餐
+    }
 }
