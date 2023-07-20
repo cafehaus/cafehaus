@@ -7,6 +7,7 @@
            values
         (#{categoryId}, #{name}, #{price}, #{status}, #{description}, #{image}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
     </insert>
+
     <select id="query" resultType="com.sky.vo.SetmealVO">
         select s.*, c.name as categoryName from setmeal s left join category c on s.category_id=c.id
         <where>
@@ -22,4 +23,41 @@
         </where>
         order by update_time desc
     </select>
+
+    <update id="edit" parameterType="com.sky.entity.Setmeal">
+        update setmeal
+        <set>
+            <if test="name != null">
+                name=#{name},
+            </if>
+            <if test="categoryId != null">
+                category_id=#{categoryId},
+            </if>
+            <if test="price != null">
+                price=#{price},
+            </if>
+            <if test="image != null">
+                image=#{image},
+            </if>
+            <if test="description != null">
+                description=#{description},
+            </if>
+            <if test="status != null">
+                status=#{status},
+            </if>
+            <if test="createTime != null">
+                create_time=#{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser},
+            </if>
+            <if test="updateUser != null">
+                update_user = #{updateUser}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>
