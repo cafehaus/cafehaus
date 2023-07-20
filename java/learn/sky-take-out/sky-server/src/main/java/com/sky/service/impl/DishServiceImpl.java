@@ -15,6 +15,7 @@ import com.sky.mapper.SetmealDishMapper;
 import com.sky.mapper.SetmealMapper;
 import com.sky.result.PageResult;
 import com.sky.service.DishService;
+import com.sky.service.SetmealService;
 import com.sky.vo.DishVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,8 @@ public class DishServiceImpl implements DishService {
     SetmealDishMapper setmealDishMapper;
     @Autowired
     SetmealMapper setmealMapper;
+    @Autowired
+    SetmealService setmealService;
 
     /**
      * 新增菜品
@@ -168,11 +171,15 @@ public class DishServiceImpl implements DishService {
             List<Long> setmealIds = setmealDishMapper.querySetmealIdByDishIds(ids);
             if (setmealIds != null && setmealIds.size() > 0) {
                 for (Long setmealId: setmealIds) {
-                    Setmeal setmeal = Setmeal.builder()
-                            .id(setmealId)
-                            .status(StatusConstant.DISABLE)
-                            .build();
-                    setmealMapper.edit(setmeal);
+                    // 方式一：直接调用 mapper 层修改数据
+//                    Setmeal setmeal = Setmeal.builder()
+//                            .id(setmealId)
+//                            .status(StatusConstant.DISABLE)
+//                            .build();
+//                    setmealMapper.edit(setmeal);
+                    // 方式二：调用 service 层的 SetmealService 去修改数据
+                    // 不知道这样是否合理，感觉职责更分明，更像微服务中的服务之间调用
+                    setmealService.changeStatus(setmealId, StatusConstant.DISABLE);
                 }
             }
         }
