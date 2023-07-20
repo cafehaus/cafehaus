@@ -11,4 +11,7 @@ sky:
     host: localhost
     port: 6379
     password: 123456
-    database: 0 # 要是用的储存库 0-15
+    database: 0 # 要使用的储存库 0-15
+  wechat:
+    appid: wxaffe41c5ea7a098
+    secret: 2508bbdc42af80b47284979cd06f93a
