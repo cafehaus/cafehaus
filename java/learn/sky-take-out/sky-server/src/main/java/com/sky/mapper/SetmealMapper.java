@@ -5,6 +5,7 @@ import com.sky.annotation.AutoFill;
 import com.sky.dto.SetmealPageQueryDTO;
 import com.sky.entity.Setmeal;
 import com.sky.enumeration.OperationType;
+import com.sky.vo.SetmealVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -14,7 +15,7 @@ public interface SetmealMapper {
      * @param setmealPageQueryDTO
      * @return
      */
-    Page<Setmeal> query(SetmealPageQueryDTO setmealPageQueryDTO);
+    Page<SetmealVO> query(SetmealPageQueryDTO setmealPageQueryDTO);
 
     /**
      * 新增套餐

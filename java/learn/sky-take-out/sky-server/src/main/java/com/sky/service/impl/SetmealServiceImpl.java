@@ -10,6 +10,7 @@ import com.sky.mapper.SetmealDishMapper;
 import com.sky.mapper.SetmealMapper;
 import com.sky.result.PageResult;
 import com.sky.service.SetmealService;
+import com.sky.vo.SetmealVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,10 +32,10 @@ public class SetmealServiceImpl implements SetmealService {
     @Override
     public PageResult query(SetmealPageQueryDTO setmealPageQueryDTO) {
         PageHelper.startPage(setmealPageQueryDTO.getPage(), setmealPageQueryDTO.getPageSize());
-        Page<Setmeal> page = setmealMapper.query(setmealPageQueryDTO);
+        Page<SetmealVO> page = setmealMapper.query(setmealPageQueryDTO);
 
         Long total = page.getTotal();
-        List<Setmeal> records = page.getResult();
+        List<SetmealVO> records = page.getResult();
 
         return new PageResult(total, records);
     }
