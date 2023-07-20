@@ -93,8 +93,16 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
      * @param registry
      */
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        registry.addResourceHandler("/doc.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
+        // 设置上传的文件静态资源映射
+        // dev target/classes/public/upload
+        // jar public/upload
+        registry.addResourceHandler("/upload/**")
+                .addResourceLocations("classpath:/public/upload/", "file:public/upload/");
     }
 
     /**
