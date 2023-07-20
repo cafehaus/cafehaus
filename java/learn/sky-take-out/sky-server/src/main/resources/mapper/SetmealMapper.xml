@@ -60,4 +60,11 @@
         </set>
         where id=#{id}
     </update>
+
+    <delete id="delete">
+        delete from setmeal where id in
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>
