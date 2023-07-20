@@ -25,7 +25,7 @@
         order by update_time desc
     </select>
     <!--根据分类id或菜名查询菜品-->
-    <select id="queryByCategoryOrName" parameterType="com.sky.vo.Dish" resultType="com.sky.vo.DishVO">
+    <select id="queryByCategoryOrName" parameterType="com.sky.entity.Dish" resultType="com.sky.vo.DishVO">
         select * from dish
         <where>
             <if test="name != null">
