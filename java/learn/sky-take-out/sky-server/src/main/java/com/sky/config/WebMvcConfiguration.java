@@ -1,6 +1,5 @@
 package com.sky.config;
 
-import com.alibaba.fastjson.support.spring.messaging.MappingFastJsonMessageConverter;
 import com.sky.interceptor.JwtTokenAdminInterceptor;
 import com.sky.interceptor.JwtTokenUserInterceptor;
 import com.sky.json.JacksonObjectMapper;
@@ -98,11 +97,9 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
 
-        // 设置上传的文件静态资源映射
-        // dev target/classes/public/upload
-        // jar public/upload
+        // 设置上传的文件静态资源映射，application 里的 mvc 里也要设置下静态目录
         registry.addResourceHandler("/upload/**")
-                .addResourceLocations("classpath:/public/upload/", "file:public/upload/");
+                .addResourceLocations("classpath:/upload/", "file:upload/");
     }
 
     /**

@@ -22,6 +22,8 @@ spring:
       enabled: true
       max-file-size: 10MB  #单个文件的最大上限
       max-request-size: 20MB #单个请求的文件总大小上限
+  mvc:
+    static-path-pattern: /upload/**
 
 mybatis:
   #mapper配置文件

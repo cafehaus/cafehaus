@@ -3,44 +3,57 @@ package com.sky.utils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
-import org.springframework.util.ClassUtils;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 public class UploadFileUtil {
     /**
      * 获取文件保存路径
-     * 参考：https://www.bbsmax.com/A/GBJrE67Wz0/
      *
      * @return File
      * @throws FileNotFoundException
      */
-    static File getUploadDirectory() throws FileNotFoundException {
-        // 开发环境 获取 target/classes 目录
-        File path = new File(ResourceUtils.getURL("classpath:").getPath());
-
+    static List<File> getUploadDirectory() throws FileNotFoundException {
+        // 开发环境获取 target/classes 目录：清理重新编译后就没有了
+        File targetPath = new File(ResourceUtils.getURL("classpath:").getPath());
+        // System.out.printf("项目运行的绝对路径：" + path.getAbsolutePath());
+        // 输出 xx/sky-take-out/sky-server/target/classes
         // 生产环境 不存在 target/classes 目录
-        if (!path.exists()) {
+        if (!targetPath.exists()) {
             // 获取当前运行目录
-            path = new File("");
+            targetPath = new File("");
         }
 
-        File upload = new File(path.getAbsolutePath(), "public/upload");
+        // 开发环境 resources 目录：可永久保存
+        String resourcesPath = System.getProperty("user.dir") + "/sky-server/src/main/resources";
+        // System.out.printf("resources目录路径：" + resourcesPath);
+        File path = new File(resourcesPath);
+
+
+        File upload = new File(path.getAbsolutePath(), "upload");
+        File uploadTarget = new File(targetPath.getAbsolutePath(), "upload");
 
         // 不存在则创建
         if (!upload.exists()) {
             upload.mkdirs();
         }
+        if (!uploadTarget.exists()) {
+            uploadTarget.mkdirs();
+        }
 
-        return upload;
+        List<File> files = new ArrayList<File>();
+        files.add(upload);
+        files.add(uploadTarget);
+
+        // System.out.printf("当前目录：" + files);
+
+        return files;
     }
-
-    // TODO 上传路径这块后面要优化下
-    // 上传文件目录
-    // private static final String UPLOAD_FOLDER = System.getProperty("user.dir") + "/upload/";
-    // private static final String UPLOAD_FOLDER = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/";
 
     public static String upload(MultipartFile myFile, String dir) throws IOException {
         String filePath = "";
@@ -49,20 +62,19 @@ public class UploadFileUtil {
                 String filename = myFile.getOriginalFilename();
                 filename = UUID.randomUUID() + filename.substring(filename.lastIndexOf("."));
 
-//                File upDir = new File(UPLOAD_FOLDER);
-//                // 目录不存在就新建一个
-//                if (!upDir.exists()) {
-//                    upDir.mkdir();
-//                }
-//
-//                filePath = UPLOAD_FOLDER + filename;
-//                File f = new File(filePath);
-//                // 通过transferTo方法写入文件，类似 node 里的 fs.writeFile
-//                myFile.transferTo(f);
-//
-//                // filePath = "http://localhost:8080/static/" + filename;
-                File f = new File(getUploadDirectory(), filename);
-                myFile.transferTo(f);
+                // 之所以保存到 resources 和 target 两个目录，兼顾开发测试和永久保存
+                // 只保存到resources目录下每次上传了要重新编译下，target则清理打包后就没有了
+                List<File> files = getUploadDirectory();
+
+                // 注意这里一个文件不能循环同时写入多个目录，保存了第一个，第二个要复制过去
+                File curFile = new File(files.get(0), filename);
+                myFile.transferTo(curFile);
+                FileCopyUtils.copy(curFile, new File(files.get(1), filename));
+                //for (File f: files) {
+                    //File curFile = new File(f, filename);
+                    //myFile.transferTo(curFile);
+                //}
+
                 filePath = "http://localhost:8080/upload/" + filename;
             } catch (Exception e) {
                 e.printStackTrace();
