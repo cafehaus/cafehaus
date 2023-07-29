@@ -15,6 +15,7 @@
         <module>heima-leadnews-feign-api</module>
         <module>heima-leadnews-service</module>
         <module>heima-leadnews-gateway</module>
+        <module>heima-leadnews-basic</module>
         <module>heima-leadnews-test</module>
     </modules>
 
