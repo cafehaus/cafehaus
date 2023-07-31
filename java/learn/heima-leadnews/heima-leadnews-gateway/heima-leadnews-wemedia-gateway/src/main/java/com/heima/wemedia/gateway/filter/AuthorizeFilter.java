@@ -44,7 +44,7 @@ public class AuthorizeFilter implements Ordered, GlobalFilter {
             Claims claimsBody = AppJwtUtil.getClaimsBody(token);
             //是否是过期
             int result = AppJwtUtil.verifyToken(claimsBody);
-            if(result == 1 || result  == 2){
+            if(result == 1 || result == 2){
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);
                 return response.setComplete();
             }
