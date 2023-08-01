@@ -1,9 +1,8 @@
 package com.heima.article.controller.v1;
 
-import com.heima.article.service.ArticleHomeService;
+import com.heima.article.service.ApArticleService;
 import com.heima.common.constants.ArticleConstants;
 import com.heima.model.article.dtos.ArticleHomeDto;
-import com.heima.model.article.pojos.ApArticle;
 import com.heima.model.common.dtos.ResponseResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/v1/article")
 @Slf4j
 public class ArticleHomeController {
     @Autowired
-    ArticleHomeService articleHomeService;
+    ApArticleService apArticleService;
 
     /**
      * 文章列表
@@ -28,7 +25,7 @@ public class ArticleHomeController {
     @PostMapping("/load")
     public ResponseResult load(ArticleHomeDto articleHomeDto) {
         log.info("文章列表:{}", articleHomeDto);
-        return articleHomeService.load(ArticleConstants.LOADTYPE_LOAD_NEW, articleHomeDto);
+        return apArticleService.load(ArticleConstants.LOADTYPE_LOAD_NEW, articleHomeDto);
     }
 
     /**
@@ -39,7 +36,7 @@ public class ArticleHomeController {
     @PostMapping("/loadmore")
     public ResponseResult loadMore(ArticleHomeDto articleHomeDto) {
         log.info("文章列表加载更多:{}", articleHomeDto);
-        return articleHomeService.load(ArticleConstants.LOADTYPE_LOAD_MORE, articleHomeDto);
+        return apArticleService.load(ArticleConstants.LOADTYPE_LOAD_MORE, articleHomeDto);
     }
 
     /**
@@ -50,6 +47,6 @@ public class ArticleHomeController {
     @PostMapping("/loadnew")
     public ResponseResult loadNew(ArticleHomeDto articleHomeDto) {
         log.info("文章列表加载最新:{}", articleHomeDto);
-        return articleHomeService.load(ArticleConstants.LOADTYPE_LOAD_NEW, articleHomeDto);
+        return apArticleService.load(ArticleConstants.LOADTYPE_LOAD_NEW, articleHomeDto);
     }
 }

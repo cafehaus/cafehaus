@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.heima.article.mapper.ApArticleConfigMapper;
 import com.heima.article.mapper.ApArticleContentMapper;
-import com.heima.article.mapper.ArticleHomeMapper;
-import com.heima.article.service.ArticleHomeService;
+import com.heima.article.mapper.ApArticleMapper;
+import com.heima.article.service.ApArticleService;
 import com.heima.common.constants.ArticleConstants;
 import com.heima.model.article.dtos.ArticleDto;
 import com.heima.model.article.dtos.ArticleHomeDto;
@@ -23,9 +23,9 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class ArticleHomeServiceImpl extends ServiceImpl<ArticleHomeMapper, ApArticle> implements ArticleHomeService {
+public class ApArticleServiceImpl extends ServiceImpl<ApArticleMapper, ApArticle> implements ApArticleService {
     @Autowired
-    ArticleHomeMapper articleHomeMapper;
+    ApArticleMapper articleHomeMapper;
 
     @Autowired
     private ApArticleConfigMapper apArticleConfigMapper;

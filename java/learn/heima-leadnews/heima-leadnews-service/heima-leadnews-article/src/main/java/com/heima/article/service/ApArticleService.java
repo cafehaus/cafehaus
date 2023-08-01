@@ -6,7 +6,7 @@ import com.heima.model.article.dtos.ArticleHomeDto;
 import com.heima.model.article.pojos.ApArticle;
 import com.heima.model.common.dtos.ResponseResult;
 
-public interface ArticleHomeService extends IService<ApArticle> {
+public interface ApArticleService extends IService<ApArticle> {
 
     /**
      * 文章列表

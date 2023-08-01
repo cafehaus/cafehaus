@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.heima.article.mapper.ArticleHomeMapper">
+<mapper namespace="com.heima.article.mapper.ApArticleMapper">
     <select id="loadArticleList" resultType="com.heima.model.article.pojos.ApArticle">
         select * from ap_article ap left join ap_article_config ac on ap.id=ac.article_id
         <where>
