@@ -138,6 +138,9 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
         List<String> materials =  ectractUrlInfo(dto.getContent());
         saveRelativeInfo(materials, wmNews.getId(), WemediaConstants.WM_CONTENT_REFERENCE);
 
+        // 保存文章封面图片与素材的关系，如果当前布局是自动，需要匹配封面图片
+        saveRelativeInfoForCover(dto, wmNews, materials);
+
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 
@@ -206,6 +209,45 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
 
             //批量保存
             wmNewsMaterialMapper.saveRelations(idList,newsId,type);
+        }
+    }
+
+    /**
+     * 第一个功能：如果当前封面类型为自动，则设置封面类型的数据
+     * 匹配规则：
+     * 1，如果内容图片大于等于1，小于3  单图  type 1
+     * 2，如果内容图片大于等于3  多图  type 3
+     * 3，如果内容没有图片，无图  type 0
+     *
+     * 第二个功能：保存封面图片与素材的关系
+     * @param dto
+     * @param wmNews
+     * @param materials
+     */
+    private void saveRelativeInfoForCover(WmNewsDto dto, WmNews wmNews, List<String> materials) {
+        List<String> images = dto.getImages();
+        if (dto.getStatus().equals(WemediaConstants.WM_NEWS_TYPE_AUTO)) {
+            Integer size = materials.size();
+            if (size > 3) { // 多图
+                wmNews.setType(WemediaConstants.WM_NEWS_MANY_IMAGE);
+                images = materials.stream().limit(3).collect(Collectors.toList());
+            } else if (size >= 1 && size < 3) { // 单图
+                wmNews.setType(WemediaConstants.WM_NEWS_SINGLE_IMAGE);
+                images = materials.stream().limit(1).collect(Collectors.toList());
+            } else { // 无图
+                wmNews.setType(WemediaConstants.WM_NEWS_NONE_IMAGE);
+            }
+
+            //修改文章
+            if(images != null && images.size() > 0){
+                wmNews.setImages(StringUtils.join(images,","));
+            }
+            updateById(wmNews);
+        }
+
+        // 将封面图和文章的对应关系存到 wm_news_material 关系表中
+        if(images != null && images.size() > 0){
+            saveRelativeInfo(images, wmNews.getId(), WemediaConstants.WM_COVER_REFERENCE);
         }
     }
 
