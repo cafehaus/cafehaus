@@ -62,6 +62,10 @@ public class AuthorizeFilter implements Ordered, GlobalFilter {
             exchange.mutate().request(serverHttpRequest).build();
         } catch (Exception e) {
             e.printStackTrace();
+
+            // token 过期了会走这里报错，直接踢出登录
+            response.setStatusCode(HttpStatus.UNAUTHORIZED);
+            return response.setComplete();
         }
 
         //6.放行
