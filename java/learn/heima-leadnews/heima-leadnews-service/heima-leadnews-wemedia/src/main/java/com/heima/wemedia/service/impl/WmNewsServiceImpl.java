@@ -21,6 +21,7 @@ import com.heima.utils.thread.WmTokenThredUtil;
 import com.heima.wemedia.mapper.WmMaterialMapper;
 import com.heima.wemedia.mapper.WmNewsMapper;
 import com.heima.wemedia.mapper.WmNewsMaterialMapper;
+import com.heima.wemedia.service.WmNewsAutoScanService;
 import com.heima.wemedia.service.WmNewsService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -39,6 +40,8 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
     WmNewsMaterialMapper wmNewsMaterialMapper;
     @Autowired
     WmMaterialMapper wmMaterialMapper;
+    @Autowired
+    WmNewsAutoScanService wmNewsAutoScanService;
 
     /**
      * 分页查询文章列表
@@ -140,6 +143,9 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
 
         // 保存文章封面图片与素材的关系，如果当前布局是自动，需要匹配封面图片
         saveRelativeInfoForCover(dto, wmNews, materials);
+
+        // 审核文章
+        wmNewsAutoScanService.autoScanWmNews(wmNews.getId());
 
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
