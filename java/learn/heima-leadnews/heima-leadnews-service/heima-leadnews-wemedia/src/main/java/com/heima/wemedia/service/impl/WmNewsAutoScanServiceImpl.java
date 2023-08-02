@@ -2,6 +2,7 @@ package com.heima.wemedia.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.heima.apis.article.IArticleClient;
 import com.heima.apis.article.fallback.IArticleClientFallback;
 import com.heima.file.service.FileStorageService;
 import com.heima.model.article.dtos.ArticleDto;
@@ -20,7 +21,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -75,14 +75,13 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
             //回填article_id
             wmNews.setArticleId((Long) responseResult.getData());
             updateWmNews(wmNews,(short) 9,"审核成功");
-
         }
     }
 
-    // @Autowired
-    // private IArticleClient articleClient;
     @Autowired
-    private IArticleClientFallback articleClient;
+    private IArticleClient articleClient;
+    // @Autowired
+    // private IArticleClientFallback articleClient;
 
     @Autowired
     private WmChannelMapper wmChannelMapper;
@@ -95,6 +94,7 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
      * @param wmNews
      */
     private ResponseResult saveAppArticle(WmNews wmNews) {
+        log.info("保存文章:{}", wmNews);
 
         ArticleDto dto = new ArticleDto();
         //属性的拷贝

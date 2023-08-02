@@ -6,6 +6,7 @@ import com.heima.article.mapper.ApArticleConfigMapper;
 import com.heima.article.mapper.ApArticleContentMapper;
 import com.heima.article.mapper.ApArticleMapper;
 import com.heima.article.service.ApArticleService;
+import com.heima.article.service.ArticleFreemarkerService;
 import com.heima.common.constants.ArticleConstants;
 import com.heima.model.article.dtos.ArticleDto;
 import com.heima.model.article.dtos.ArticleHomeDto;
@@ -17,6 +18,7 @@ import com.heima.model.common.enums.AppHttpCodeEnum;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -26,12 +28,14 @@ import java.util.List;
 public class ApArticleServiceImpl extends ServiceImpl<ApArticleMapper, ApArticle> implements ApArticleService {
     @Autowired
     ApArticleMapper articleHomeMapper;
-
     @Autowired
     private ApArticleConfigMapper apArticleConfigMapper;
-
     @Autowired
     private ApArticleContentMapper apArticleContentMapper;
+
+    @Lazy // 修复循环引用的报错
+    @Autowired
+    ArticleFreemarkerService articleFreemarkerService;
 
     /**
      * 文章列表
@@ -113,6 +117,10 @@ public class ApArticleServiceImpl extends ServiceImpl<ApArticleMapper, ApArticle
             apArticleContentMapper.updateById(apArticleContent);
         }
 
+        // 异步调用 生成静态文件上传到minio中
+        articleFreemarkerService.buildArticleToMinIO(apArticle,dto.getContent());
+
+        System.out.println("----------saveArticle:" + apArticle);
 
         //3.结果返回  文章的id
         return ResponseResult.okResult(apArticle.getId());

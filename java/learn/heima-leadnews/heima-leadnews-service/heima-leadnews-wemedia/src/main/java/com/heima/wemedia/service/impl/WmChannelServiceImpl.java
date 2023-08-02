@@ -6,8 +6,10 @@ import com.heima.model.wemedia.pojos.WmChannel;
 import com.heima.wemedia.mapper.WmChannelMapper;
 import com.heima.wemedia.service.WmChannelService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class WmChannelServiceImpl extends ServiceImpl<WmChannelMapper, WmChannel> implements WmChannelService {
 
     /**
