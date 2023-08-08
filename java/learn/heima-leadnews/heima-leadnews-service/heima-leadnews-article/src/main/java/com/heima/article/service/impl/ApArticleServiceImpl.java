@@ -65,7 +65,7 @@ public class ApArticleServiceImpl extends ServiceImpl<ApArticleMapper, ApArticle
             articleHomeDto.setTag(ArticleConstants.DEFAULT_TAG);
         }
 
-        // 4、时间擦参数，默认当前时间
+        // 4、时间参数，默认当前时间
         if(articleHomeDto.getMaxBehotTime() == null) articleHomeDto.setMaxBehotTime(new Date());
         if(articleHomeDto.getMinBehotTime() == null) articleHomeDto.setMinBehotTime(new Date());
 
