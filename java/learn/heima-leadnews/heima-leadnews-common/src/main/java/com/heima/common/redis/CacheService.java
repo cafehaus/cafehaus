@@ -3,14 +3,10 @@ package com.heima.common.redis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.dao.DataAccessException;
-import org.springframework.data.redis.connection.DataType;
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.connection.StringRedisConnection;
-import org.springframework.data.redis.core.Cursor;
-import org.springframework.data.redis.core.RedisCallback;
-import org.springframework.data.redis.core.ScanOptions;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.connection.*;
+import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
+import org.springframework.data.redis.core.types.Expiration;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
@@ -718,7 +714,7 @@ public class CacheService extends CachingConfigurerSupport {
         return stringRedisTemplate.opsForList().rightPopAndLeftPush(sourceKey,
                 destinationKey, timeout, unit);
     }
-    
+
     /**
      * 删除集合中值等于value得元素
      *
@@ -1060,7 +1056,7 @@ public class CacheService extends CachingConfigurerSupport {
             Object[] objs = values.toArray(new Object[values.size()]);
             return stringRedisTemplate.opsForZSet().remove(key, objs);
         }
-       return 0L;
+        return 0L;
     }
 
     /**
@@ -1110,7 +1106,7 @@ public class CacheService extends CachingConfigurerSupport {
     public Set<String> zRange(String key, long start, long end) {
         return stringRedisTemplate.opsForZSet().range(key, start, end);
     }
-    
+
     /**
      * 获取zset集合的所有元素, 从小到大排序
      *
@@ -1401,7 +1397,7 @@ public class CacheService extends CachingConfigurerSupport {
         });
         return  keys;
     }
-    
+
     /**
      * 管道技术，提高性能
      * @param type
@@ -1410,15 +1406,15 @@ public class CacheService extends CachingConfigurerSupport {
      */
     public List<Object> lRightPushPipeline(String type,Collection<String> values){
         List<Object> results = stringRedisTemplate.executePipelined(new RedisCallback<Object>() {
-                    public Object doInRedis(RedisConnection connection) throws DataAccessException {
-                        StringRedisConnection stringRedisConn = (StringRedisConnection)connection;
-                        //集合转换数组
-                        String[] strings = values.toArray(new String[values.size()]);
-                        //直接批量发送
-                        stringRedisConn.rPush(type, strings);
-                        return null;
-                    }
-                });
+            public Object doInRedis(RedisConnection connection) throws DataAccessException {
+                StringRedisConnection stringRedisConn = (StringRedisConnection)connection;
+                //集合转换数组
+                String[] strings = values.toArray(new String[values.size()]);
+                //直接批量发送
+                stringRedisConn.rPush(type, strings);
+                return null;
+            }
+        });
         return results;
     }
 
@@ -1430,7 +1426,7 @@ public class CacheService extends CachingConfigurerSupport {
             public Object doInRedis(RedisConnection redisConnection) throws DataAccessException {
                 StringRedisConnection stringRedisConnection = (StringRedisConnection)redisConnection;
                 String[] strings = values.toArray(new String[values.size()]);
-                stringRedisConnection.rPush(topic_key,strings);
+                stringRedisConnection.lPush(topic_key,strings);
                 stringRedisConnection.zRem(future_key,strings);
                 return null;
             }
@@ -1438,4 +1434,33 @@ public class CacheService extends CachingConfigurerSupport {
         return objects;
     }
 
+    /**
+     * 加锁
+     *
+     * @param name
+     * @param expire
+     * @return
+     */
+    public String tryLock(String name, long expire) {
+        name = name + "_lock";
+        String token = UUID.randomUUID().toString();
+        RedisConnectionFactory factory = stringRedisTemplate.getConnectionFactory();
+        RedisConnection conn = factory.getConnection();
+        try {
+
+            //参考redis命令：
+            //set key value [EX seconds] [PX milliseconds] [NX|XX]
+            Boolean result = conn.set(
+                    name.getBytes(),
+                    token.getBytes(),
+                    Expiration.from(expire, TimeUnit.MILLISECONDS),
+                    RedisStringCommands.SetOption.SET_IF_ABSENT //NX
+            );
+            if (result != null && result)
+                return token;
+        } finally {
+            RedisConnectionUtils.releaseConnection(conn, factory,false);
+        }
+        return null;
+    }
 }

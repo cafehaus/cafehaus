@@ -1,2 +1,6 @@
 .DS_Store
 node_modules
+java/learn/heima-leadnews/config/app-web/log/error.log
+java/learn/heima-leadnews/config/app-web/log/access.log
+java/learn/heima-leadnews/config/wemedia-web/log/access.log
+java/learn/heima-leadnews/config/wemedia-web/log/error.log
