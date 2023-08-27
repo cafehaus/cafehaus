@@ -4,3 +4,6 @@
 *.class
 *Test.java
 **/test/
+/config/app-web/log
+/config/wemedia-web/log
+/config/minio
