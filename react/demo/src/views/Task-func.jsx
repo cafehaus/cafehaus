@@ -74,12 +74,12 @@ function Task() {
   const handleComplete = (row, i) => {
     tableData[i].status = '1'
     tableData[i].completeTime = dayjs().format('YYYY-MM-DD HH:mm:ss')
-    setTableData([tableData])
+    setTableData([...tableData])
   }
   const handleDelete = (row, i) => {
     tableData.splice(i, 1)
 
-    setTableData([tableData])
+    setTableData([...tableData])
   }
   const handleAdd = () => {
     setShowModal(true)
@@ -97,7 +97,7 @@ function Task() {
         completeTime: dayjs(form.completeTime).format('YYYY-MM-DD HH:mm:ss'),
       })
 
-      setTableData(tableData)
+      setTableData([...tableData])
       handleCancel()
     }).catch(err => { console.log(err) })
   }
