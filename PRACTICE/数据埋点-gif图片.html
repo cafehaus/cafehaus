@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    // 数据埋点
+    function buryPoint(name, event) {
+      let time = new Date()
+      let page = window.location.href
+      let user = this.username || '未登录'
+
+      let params = {}
+      params.name = name
+      params.event = event
+      params.time = time
+      params.page = page
+      params.user = user
+      // 拼接参数
+      let args = ''
+      for (let i in params) {
+        if (args !== '') {
+          args += '&'
+        }
+        args += `${i}=${params[i]}`
+      }
+      // 通过伪装成 Image 对象，将埋点数据传递给后端
+      let img = new Image(1, 1)
+      let src = `http://yungehuo.com/api/md.gif?args=${encodeURIComponent(args)}`
+      img.src = src
+    }
+
+  </script>
+
+</body>
+
+</html>

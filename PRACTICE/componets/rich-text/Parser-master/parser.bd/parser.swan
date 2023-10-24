@@ -1,0 +1,3 @@
+<!--parser 主组件-->
+<slot s-if="!nodes.length" />
+<trees class="_top" style="{{selectable?'user-select:text;-webkit-user-select:text;':''}}{{showAm}}" lazyLoad="{{lazyLoad}}" loading="{{loadingImg}}" nodes="{{nodes}}" />

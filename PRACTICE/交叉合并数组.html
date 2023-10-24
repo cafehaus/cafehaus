@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>交叉合并数组</h2>
+</body>
+
+</html>
+
+<script>
+    // 交叉合并数组
+    function crossConcatArray(ary, ary2) {
+        let list = []
+        let minLength
+
+        // 较短的数组长度
+        if(ary.length > ary2.length){
+            minLength = ary2.length
+        } else {
+            minLength = ary.length
+        }
+
+        // 将两个数组中较长的数组记录下来
+        let longAry = arguments[0].length > arguments[1].length ? arguments[0] : arguments[1]
+
+        //循环添加
+        for (let i = 0; i < minLength; i++) {
+            list.push(ary[i])
+            list.push(ary2[i])
+        }
+
+        // 合并较长数组剩余的项
+        return list.concat(longAry.slice(minLength))
+    }
+
+    let arr = ['a', 'b', 'c', 'd', 'e', 'f']
+    let arr2 = [1, 2, 3]
+
+    let newArr = crossConcatArray(arr, arr2)
+    console.log(newArr)
+</script>

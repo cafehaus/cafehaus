@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getNowMonthDate() {
+            let date = new Date()
+            let year = date.getFullYear() + ''
+            let month = (date.getMonth() + 1) + ''
+
+            let begin = year + '-' + month + '-01'
+
+            let lastDateOfCurrentMonth = new Date(year, month, 0)
+            let end = year + '-' + month + '-' + lastDateOfCurrentMonth.getDate()
+            return begin + ' 至 ' + end
+        }
+
+        let time = getNowMonthDate()
+        console.log(time)
+    </script>
+</body>
+</html>

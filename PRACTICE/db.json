@@ -1,0 +1,16 @@
+{
+  "burypoint": {
+    "name": "首页登录按钮",
+    "time": "2019-10-08T08:26:10.838Z",
+    "type": "点击",
+    "page": "https://yungehuo.com/",
+    "user": ""
+  },
+  "data2": [
+    {
+      "id": "004",
+      "name": "Rebeca",
+      "age": 27
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="ipt" type="text" oninput="getValue(this.value)" value="" placeholder="输入框1" />
+    <input id="ipt2" type="text" onchange="getValue2(this.value)" value="" placeholder="输入框2" />
+
+    <script>
+    //   输入框的oninput事件会在值改变时实时触发，onchange事件是在值改变并且失去焦点时才会触发
+      function getValue() {
+          let val = document.getElementById('ipt').value
+          console.log(val)
+      }
+      function getValue2() {
+          let val = document.getElementById('ipt2').value
+          console.log(val)
+      }
+    </script>
+</body>
+</html>

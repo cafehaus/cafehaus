@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>按倍数分割数组组成新数组</h2>
+</body>
+
+</html>
+
+<script>
+    function splitArray(arr) {
+        let b = 2 // 按照比例切割
+        let num = 0
+        let list = []
+        for (let i = 0; i < arr.length; i++) {
+            if (i % b === 0 && i !== 0) {
+                list.push(arr.slice(num, i))
+                num = i
+            }
+            if ((i + 1) === arr.length) {
+                list.push(arr.slice(num, (i + 1)))
+            }
+        }
+        return list
+    }
+
+    let arr = [
+        {
+            "channelId": "1215166197816713218",
+            "channelName": "测试AAA",
+            "channelType": "SHIPPING",
+            "channelTypeName": "海运",
+            "deliveryCityCode": "249",
+            "deliveryCityName": "深圳",
+            "countryCode": "US",
+            "countryName": "美国",
+            "discountPrice": 1,
+            "originPrice": 1,
+            "discountEndTime": "2020-02-29 23:59:59",
+            "discountDesc": "直降10%",
+            "pickupTime": "1-3工作日",
+            "accessibleGoods": "普货,带磁,带电"
+        },
+        {
+            "channelId": "1166543682241503210",
+            "channelName": "香港飞美国双清包税(销售09-02)",
+            "channelType": "AIR",
+            "channelTypeName": "空运",
+            "deliveryCityCode": "249",
+            "deliveryCityName": "深圳",
+            "countryCode": "US",
+            "countryName": "美国",
+            "discountPrice": 1,
+            "originPrice": 1,
+            "discountEndTime": "2020-02-29 23:59:59",
+            "discountDesc": "直降10%",
+            "pickupTime": "8-12工作日",
+            "accessibleGoods": "普货,带电,带电带磁,带磁,纺织品,鞋子,包包"
+        },
+        {
+            "channelId": "1237565711430238210",
+            "channelName": "测试运输方案四",
+            "channelType": "SHIPPING",
+            "channelTypeName": "海运",
+            "deliveryCityCode": "249",
+            "deliveryCityName": "深圳",
+            "countryCode": "US",
+            "countryName": "美国",
+            "discountPrice": 2,
+            "originPrice": 2,
+            "discountEndTime": "2020-02-29 23:59:59",
+            "discountDesc": "直降10%",
+            "pickupTime": "5-8工作日",
+            "accessibleGoods": "普货,带磁,带电"
+        },
+        {
+            "channelId": "1232970701182144514",
+            "channelName": "测试运输方案三",
+            "channelType": "SHIPPING",
+            "channelTypeName": "海运",
+            "deliveryCityCode": "249",
+            "deliveryCityName": "深圳",
+            "countryCode": "US",
+            "countryName": "美国",
+            "discountPrice": 2,
+            "originPrice": 2,
+            "discountEndTime": "2020-02-29 23:59:59",
+            "discountDesc": "直降10%",
+            "pickupTime": "3-8工作日",
+            "accessibleGoods": "普货,带磁,带电"
+        },
+        {
+            "channelId": "1215168552419287041",
+            "channelName": "测试BBB",
+            "channelType": "AIR",
+            "channelTypeName": "空运",
+            "deliveryCityCode": "249",
+            "deliveryCityName": "深圳",
+            "countryCode": "US",
+            "countryName": "美国",
+            "discountPrice": 2,
+            "originPrice": 2,
+            "discountEndTime": "2020-02-29 23:59:59",
+            "discountDesc": "直降10%",
+            "pickupTime": "1-3工作日",
+            "accessibleGoods": "普货,带磁,带电"
+        },
+        {
+            "channelId": "1215171645898842113",
+            "channelName": "测试CCC",
+            "channelType": "AIR",
+            "channelTypeName": "空运",
+            "deliveryCityCode": "249",
+            "deliveryCityName": "深圳",
+            "countryCode": "US",
+            "countryName": "美国",
+            "discountPrice": 3,
+            "originPrice": 3,
+            "discountEndTime": "2020-02-29 23:59:59",
+            "discountDesc": "直降10%",
+            "pickupTime": "1-3工作日",
+            "accessibleGoods": "普货,带磁,带电"
+        },
+        {
+            "channelId": "1215171645898842114",
+            "channelName": "测试DDD",
+            "channelType": "AIR",
+            "channelTypeName": "空运",
+            "deliveryCityCode": "242",
+            "deliveryCityName": "深圳",
+            "countryCode": "US",
+            "countryName": "美国",
+            "discountPrice": 3,
+            "originPrice": 3,
+            "discountEndTime": "2020-02-29 23:59:59",
+            "discountDesc": "直降10%",
+            "pickupTime": "1-3工作日",
+            "accessibleGoods": "普货,带磁,带电"
+        }
+    ]
+
+    let newArr = splitArray(arr)
+    console.log(newArr)
+</script>

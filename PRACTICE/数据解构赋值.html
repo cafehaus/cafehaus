@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let arr = [
+                    {
+                        "longitude": "112.9",
+                        "latitude": "27.23",
+                        "speed": "90.00",
+                        "mileage": "42041.2",
+                        "height": "79",
+                        "angle": "210"
+                    },
+                    {
+                        "longitude": "112.9",
+                        "latitude": "27.24",
+                        "speed": "90.00",
+                        "mileage": "42041.4",
+                        "height": "73",
+                        "angle": "223"
+                    }
+                ];
+
+      function convertLocations(points) {
+        return points.map(({ longitude, latitude }) => ({ lnglat: [longitude, latitude] }))
+      };
+      function convertShipPoints(points) {
+      return points.map(({ longitude, latitude }) => ([longitude, latitude]))
+      };
+
+      console.log(convertLocations(arr));
+      console.log(convertShipPoints(arr));
+    </script>
+    
+</body>
+</html>

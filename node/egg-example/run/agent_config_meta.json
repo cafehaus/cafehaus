@@ -1,0 +1,291 @@
+{
+  "keys": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\config\\config.default.js",
+  "view": {
+    "defaultViewEngine": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\config\\config.default.js",
+    "mapping": {
+      ".tpl": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\config\\config.default.js"
+    },
+    "root": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "news": {
+    "pageSize": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\config\\config.default.js",
+    "serverUrl": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\config\\config.default.js"
+  },
+  "middleware": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\config\\config.default.js",
+  "robot": {
+    "ua": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\config\\config.default.js"
+  },
+  "session": {
+    "maxAge": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-session\\config\\config.default.js",
+    "logValue": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+    "csrf": {
+      "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "type": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "supportedRequests": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "refererWhiteList": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xframe": {
+      "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "ipExceptionList": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieDomain": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "allowArrayField": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js",
+      "disable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideIgnore": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "nunjucks": {
+    "autoescape": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "throwOnUndefined": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "trimBlocks": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "lstripBlocks": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "cache": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg-view-nunjucks\\config\\config.local.js"
+  },
+  "env": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "name": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "cookies": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "maxIpsCount": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "maxProxyCount": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "version": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "description": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "main": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "scripts": {
+      "dev": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "test": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    },
+    "author": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "license": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "dependencies": {
+      "egg": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-nunjucks": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "moment": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "egg-bin": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "cacheControl": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "textLimit": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "strict": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "depth": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    },
+    "onerror": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "logger": {
+    "dir": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "env": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "level": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "enablePerformanceTimer": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "logging": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "port": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "D:\\codehaus\\ZHOUXIAOHEI\\github\\cafehaus\\egg-example\\node_modules\\egg\\config\\config.default.js"
+}

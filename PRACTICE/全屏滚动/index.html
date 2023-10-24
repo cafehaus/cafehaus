@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .content {
+            height: 100%;
+        }
+
+        .content .ping {
+            height: 100%;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .louti {
+            position: fixed;
+            top: 25%;
+            right: 3%;
+        }
+
+        .louti li {
+            width: 100px;
+            text-align: center;
+            border: 1px solid #F5F5F5;
+            height: 80px;
+            line-height: 80px;
+            cursor: pointer;
+        }
+
+        .louti li:nth-child(n+2) {
+            border-top: none;
+        }
+
+        .louti li.active {
+            background: burlywood;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!--楼梯-->
+    <ul class="louti">
+        <li class="active">第1屏</li>
+        <li>第2屏</li>
+        <li>第3屏</li>
+        <li>第4屏</li>
+        <li>第5屏</li>
+    </ul>
+    <!--内容-->
+    <div class="content">
+        <div style="background-color: #87CEFB" class="ping staircase">
+            <div>这是第1屏</div>
+        </div>
+        <div style="background-color: #FFC0CB" class="ping staircase">
+            <div>这是第2屏</div>
+            /div>
+            <div style="background-color:#BAD5FF" class="ping staircase">
+                <div>这是第3屏</div>
+            </div>
+            <div style="background-color: #3CB379" class="ping staircase">
+                <div>这是第4屏</div>
+            </div>
+            <div style="background-color: #AFEEEE" class="ping staircase">
+                <div>这是第5屏</div>
+            </div>
+        </div>
+</body>
+
+<script>
+    //内容一屏一屏的滚动
+    document.addEventListener("DOMContentLoaded", function () {
+        var body = document.body;
+        var html = document.documentElement;
+        var itv, height = document.body.offsetHeight;
+        var page = scrollTop() / height | 0;
+        addEventListener("resize", onresize, false);
+        onresize();
+
+        //鼠标滚轮事件 
+        document.body.addEventListener("onwheel" in document ? "wheel" : "mousewheel", function (e) {
+            clearTimeout(itv);
+            itv = setTimeout(function () {
+                //判断滚轮滚的方向 
+                var delta = e.wheelDelta / 120 || -e.deltaY / 3;
+                page -= delta;
+                var max = (document.body.scrollHeight / height | 0) - 1;
+                if (page < 0) {
+                    return page = 0;
+                }
+                if (page > max) {
+                    return page = max;
+                }
+                move();
+            }, 100);
+            e.preventDefault();
+        });
+        //当窗体发生变化时还是保证每次滚动滚一屏 
+        function onresize() {
+            height = body.offsetHeight;
+            move();
+        };
+
+        function move() {
+            var value = height * page;
+            var diff = scrollTop() - value;
+            (function callee() {
+                diff = diff / 1.2 | 0;
+                scrollTop(value + diff);
+                if (diff) {
+                    itv = setTimeout(callee, 16);
+                }
+            })();
+        };
+
+        function scrollTop(v) {
+            if (v == null) {
+                return Math.max(body.scrollTop, html.scrollTop);
+            } else {
+                body.scrollTop = html.scrollTop = v;
+            }
+        }
+    })
+</script>
+
+</html>
