@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #f5f7f7;
+        }
+        .app {
+            background: #57bc78;
+            min-height: 100vh;
+            padding: .2rem;
+            box-sizing: border-box;
+        }
+        .title {
+            font-size: 20px;
+        }
+        .des {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <h3 class="title">适配移动端</h3>
+        <p class="des">利用 rem 单位来做移动端适配，设计稿以 750 * 1334 为基准</p>
+    </div>
+</body>
+</html>
+<script>
+    (function () {
+        var docElement = document.documentElement
+        var resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize'
+        var setFontSize = function () {
+            var clientWidth = docElement.clientWidth
+            if (!clientWidth) return
+            docElement.style.fontSize = (clientWidth >= 750) ? '100px' : ((clientWidth / 750) * 100 + 'px')
+        }
+        if (!document.addEventListener) return
+        window.addEventListener(resizeEvent, setFontSize, false)
+        window.addEventListener('DOMContentLoaded', setFontSize, false)
+    })()
+</script>
