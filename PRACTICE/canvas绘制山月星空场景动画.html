@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+}
+</style>
+<body>
+    <canvas id="bg"></canvas>
+</body>
+</html>
+<script>
+class Bg {
+    constructor() {
+        this.particles = [];
+        this.mountains = [];
+        this.tick = 0;
+
+        this.createCanvas();
+        this.createParticles();
+        this.createMountains();
+
+        this.listen();
+
+        // setInterval(() => {
+        //     this.draw();
+        // }, 20);
+        requestAnimationFrame(this.animate)
+    }
+
+    animate = () => {
+        this.draw()
+        requestAnimationFrame(this.animate)
+    }
+
+    listen() {
+        window.addEventListener('resize', () => {
+            this.c.width = window.innerWidth;
+        });
+    }
+
+    createCanvas() {
+        this.c = document.getElementById('bg');
+        this.ctx = this.c.getContext('2d');
+
+        this.c.height = 400;
+        this.c.width = window.innerWidth;
+    }
+
+    createParticles() {
+        for (var i = 0; i < 20; i++) {
+            this.particles.push({
+                x: this.c.width * Math.random(),
+                y: 400 * Math.random(),
+                vX: Math.max(2, 10 * Math.random()),
+                vY: Math.random(),
+                s: 4 * Math.random()
+            });
+        }
+    }
+
+    createMountains() {
+        this.mountains.push({
+            x: this.c.width * 0.4,
+            vX: .1,
+            o: .5,
+            p: [{
+                x: -80,
+                y: 0
+            }, {
+                x: -40,
+                y: -200
+            }, {
+                x: -30,
+                y: -205
+            }, {
+                x: 10,
+                y: -115
+            }, {
+                x: 30,
+                y: -120
+            }, {
+                x: 60,
+                y: -20
+            }, {
+                x: 80,
+                y: 0
+            }]
+        });
+
+        this.mountains.push({
+            x: this.c.width * 0.35,
+            vX: .15,
+            o: 1,
+            p: [{
+                x: -80,
+                y: 0
+            }, {
+                x: -40,
+                y: -120
+            }, {
+                x: -30,
+                y: -115
+            }, {
+                x: 0,
+                y: -165
+            }, {
+                x: 30,
+                y: -120
+            }, {
+                x: 60,
+                y: -40
+            }, {
+                x: 80,
+                y: 0
+            }]
+        });
+    }
+
+    draw() {
+        this.tick += .1;
+        this.drawSky();
+        this.drawMountains();
+        this.drawCharacters();
+        this.drawWind();
+    }
+
+    drawSky() {
+        this.ctx.beginPath();
+        this.ctx.rect(0, 0, this.c.width, 500);
+
+        var grd = this.ctx.createLinearGradient(0, 0, 0, 400);
+        grd.addColorStop(0, "#EB9AA2");
+        grd.addColorStop(1, "#FDE8D2");
+
+        this.ctx.fillStyle = grd;
+        this.ctx.fill();
+        this.ctx.closePath();
+
+        this.drawSun();
+    }
+
+    drawWind() {
+        this.drawParticles();
+    }
+
+    drawMountains() {
+        for (var i = 0; i < this.mountains.length; i++) {
+            var m = this.mountains[i];
+
+            this.ctx.beginPath();
+
+            for (var j = 0; j < m.p.length; j++) {
+                var p = m.p[j];
+
+                this.ctx.lineTo(m.x + p.x, 400 + p.y);
+            }
+
+            var grd = this.ctx.createLinearGradient(0, 200, 0, 400);
+            grd.addColorStop(0, `rgba(235, 154, 162, ${m.o})`);
+            grd.addColorStop(1, `rgba(253, 232, 210, ${m.o})`);
+
+            this.ctx.fillStyle = grd;
+            this.ctx.fill();
+            this.ctx.closePath();
+
+            m.x -= m.vX;
+        }
+    }
+
+    drawCharacters() {
+        this.drawCharacter(this.c.width * 0.2, 300, 100, 30);
+        this.drawCharacter(this.c.width * 0.6, 150, 300, 10);
+    }
+
+    drawParticles() {
+        for (var i = 0; i < this.particles.length; i++) {
+            var p = this.particles[i];
+
+            this.ctx.beginPath();
+            this.ctx.rect(p.x, p.y, p.s, p.s);
+            this.ctx.fillStyle = 'white';
+            this.ctx.fill();
+            this.ctx.closePath();
+
+            this.moveParticle(i);
+        }
+    }
+
+    moveParticle(i) {
+        var p = this.particles[i];
+
+        p.x -= p.vX;
+        p.y = p.y + (Math.sin(this.tick + p.vY + p.vX) / 2);
+
+        if (p.x < 0) {
+            p.x = this.c.width + 5;
+            p.y = 400 * Math.random();
+        }
+    }
+
+    drawCharacter(x, y, l, s) {
+        this.ctx.beginPath();
+
+        for (var i = 0; i < l; i++) {
+            var v = this.tick / 3;
+            var top = y + (Math.sin(v + i / 90) * s);
+            this.ctx.beginPath();
+            this.ctx.arc(x + i, top, i / 40, 0, Math.PI * 2);
+            this.ctx.fillStyle = '#3A5D7F'
+            this.ctx.fill();
+
+            if (i === l - 1) {
+                this.drawHead(x + (l - 1), top, l);
+            }
+        }
+        this.ctx.closePath();
+    }
+
+    drawHead(x, y, s) {
+        this.ctx.beginPath();
+        this.ctx.arc(x, y - 2, s / 50, 0, Math.PI * 2);
+        this.ctx.fillStyle = 'white';
+        this.ctx.fill();
+        this.ctx.closePath();
+
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, s / 100, 0, Math.PI * 2);
+        this.ctx.fillStyle = '#3A5D7F';
+        this.ctx.fill();
+        this.ctx.closePath();
+    }
+
+    drawSun() {
+        this.ctx.beginPath();
+        this.ctx.arc(this.c.width * .8, 380, 160, 0, Math.PI * 2);
+        this.ctx.fillStyle = '#FFFEE5';
+        this.ctx.fill();
+        this.ctx.closePath();
+    }
+}
+
+new Bg()
+</script>
